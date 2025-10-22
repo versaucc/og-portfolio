@@ -1,0 +1,249 @@
+/* Graph Component Styles - Bloomberg Terminal Inspired */
+.graph-container {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.card-graph {
+  background: #000000;
+}
+
+/* Loading States */
+.graph-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+}
+
+.graph-loading-text {
+  color: #888888;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.graph-loading-text::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid #333333;
+  border-radius: 50%;
+  border-top-color: #008080;
+  animation: spin 1s linear infinite;
+}
+
+/* Tooltip Styles */
+.graph-tooltip {
+  background: rgba(17, 17, 17, 0.95);
+  border: 1px solid #333333;
+  border-radius: 6px;
+  padding: 0.75rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  min-width: 120px;
+}
+
+.tooltip-date {
+  color: #cccccc;
+  font-size: 0.75rem;
+  margin: 0 0 0.25rem 0;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.tooltip-value {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tooltip-label {
+  color: #888888;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.tooltip-number {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Recharts Custom Styling */
+.recharts-cartesian-axis-line {
+  stroke: #333333 !important;
+  stroke-width: 1px !important;
+}
+
+.recharts-cartesian-axis-tick-line {
+  stroke: #333333 !important;
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: #888888 !important;
+  font-size: 10px !important;
+  font-family: var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace !important;
+}
+
+/* Y-axis label styling */
+.recharts-label {
+  fill: #888888 !important;
+  font-size: 10px !important;
+  font-family: var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace !important;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #222222 !important;
+  stroke-width: 1px !important;
+  opacity: 0.3 !important;
+}
+
+/* Custom Active Dot */
+.recharts-active-dot {
+  filter: drop-shadow(0 0 6px #008080c9) !important;
+}
+
+/* Line and Area Styling */
+.recharts-area-area {
+  fill: url(#areaGradient) !important;
+}
+
+.recharts-area-curve {
+  stroke: #ffffff !important;
+  stroke-width: 2px !important;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+}
+
+/* Responsive Container */
+.recharts-responsive-container {
+  background: transparent !important;
+}
+
+/* Custom Grid Lines */
+.recharts-cartesian-grid {
+  opacity: 0.6;
+}
+
+/* Animation */
+@keyframes graph-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.graph-container {
+  animation: graph-fade-in 0.5s ease-out;
+}
+
+/* Custom Hover Effects */
+.recharts-tooltip-wrapper {
+  pointer-events: none;
+}
+
+/* Error State */
+.graph-error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: linear-gradient(135deg, #1a0000 0%, #000000 100%);
+  color: #ff6b6b;
+  text-align: center;
+  padding: 2rem;
+}
+
+.graph-error h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #ff6b6b;
+}
+
+.graph-error p {
+  font-size: 0.8rem;
+  color: #cc5555;
+  margin: 0;
+}
+
+/* No Data State */
+.graph-no-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: #000000;
+  color: #666666;
+  text-align: center;
+  padding: 2rem;
+}
+
+.graph-no-data h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #888888;
+}
+
+.graph-no-data p {
+  font-size: 0.8rem;
+  color: #666666;
+  margin: 0;
+}
+
+/* Bloomberg-style refinements */
+.recharts-wrapper {
+  background: #000000 !important;
+}
+
+/* Ensure proper layering */
+.recharts-surface {
+  background: transparent !important;
+}
+
+/* Custom legend if needed */
+.graph-legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  background: #111111;
+  border-top: 1px solid #333333;
+  font-size: 0.75rem;
+  color: #888888;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0 0.5rem;
+}
+
+.legend-color {
+  width: 12px;
+  height: 2px;
+  background: #ffffff;
+}
+
+/* High DPI / Retina Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .graph-container {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}

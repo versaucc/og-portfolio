@@ -1,0 +1,215 @@
+/* Bloomberg Terminal Style Grid */
+.terminal-container {
+  min-height: 100vh;
+  background: #000000;
+  color: #00ff00;
+  font-family: 'Courier New', 'Lucida Console', monospace;
+  padding: 0;
+  margin: 0;
+  overflow-x: auto;
+  padding-bottom: 4rem; 
+}
+
+.terminal-header {
+  background: #0a0a0a;
+  border-bottom: 1px solid #777777;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.terminal-title {
+  color: #00ff00;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.terminal-grids-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  height: calc(100vh - 80px);
+  background: #333;
+}
+
+/* Mobile: Single column */
+@media (max-width: 768px) {
+  .terminal-grids-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+}
+
+.terminal-grid {
+  background: #000000;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: repeat(17, 1fr);
+  font-size: 0.75rem;
+  line-height: 1.1;
+}
+
+.grid-row {
+  display: grid;
+  grid-template-columns: 1fr 0.67fr 0.67fr;
+  border-bottom: 1px solid #333;
+}
+
+.grid-cell {
+  padding: 0.3rem;
+  border-right: 1px solid #333;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.grid-cell:last-child {
+  border-right: none;
+}
+
+/* Header row styling */
+.grid-row.header {
+  background: #1a1a1a;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Series ID column */
+.grid-cell.series-id {
+  font-family: 'Courier New', monospace;
+  color: #00ccff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.grid-cell.series-id:hover {
+  background: rgba(0, 204, 255, 0.1);
+}
+
+/* Date column */
+.grid-cell.date {
+  color: #ffff00;
+  text-align: center;
+}
+
+/* Value column with color coding */
+.grid-cell.value {
+  text-align: right;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Color coding for positive/negative changes */
+.value.positive {
+  background-color: rgba(0, 255, 0, 0.1);
+  color: #00ff00;
+}
+
+.value.negative {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #ff0000;
+}
+
+.value.positive.high-opacity {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+
+.value.negative.high-opacity {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.value.positive.medium-opacity {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+.value.negative.medium-opacity {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+/* Hover tooltips */
+.hover-tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  z-index: 1000;
+  border: 1px solid #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.hover-tooltip.visible {
+  opacity: 1;
+}
+
+/* Empty cells */
+.grid-cell.empty {
+  background: transparent;
+  border-color: #111;
+}
+
+/* Loading state */
+.loading-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-style: italic;
+}
+
+/* Bloomberg-style status bar */
+.terminal-status {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #0a0a0a;
+  border-top: 1px solid #333;
+  padding: 0.5rem;
+  font-size: 0.7rem;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+}
+
+.status-left {
+  display: flex;
+  gap: 1rem;
+}
+
+.status-right {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .terminal-grids-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .terminal-grid {
+    font-size: 0.6rem;
+  }
+  
+  .grid-cell {
+    padding: 0.2rem;
+  }
+  
+  .terminal-status {
+    font-size: 0.6rem;
+    padding: 0.3rem;
+  }
+}

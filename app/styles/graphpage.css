@@ -1,0 +1,240 @@
+/* Graph Page Styles - Bloomberg Terminal Inspired */
+.graph-page-container {
+  min-height: 100vh;
+  background: #000000;
+  color: #ffffff;
+  font-family: var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace;
+}
+
+.graph-header .navbar {
+  background: #111111 !important;
+  border-bottom: 1px solid #333333;
+}
+
+.graph-header .navbar-brand {
+  color: #ffffff !important;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.graph-header .navbar-brand:hover {
+  color: #008080 !important;
+}
+
+.graph-header svg {
+  stroke: #008080;
+}
+
+/* Hero Section */
+.graph-page-container .py-5 {
+  background: linear-gradient(135deg, #000000 0%, #111111 100%);
+  border-bottom: 1px solid #222222;
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+.graph-page-container h1 {
+  color: #ffffff;
+  font-weight: 300;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.graph-page-container .lead {
+  color: #cccccc;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* View Toggle */
+.view-toggle-container {
+  margin-top: 2rem;
+}
+
+.view-toggle-container .btn {
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  border: 1px solid #333333;
+}
+
+.view-toggle-container .btn-primary {
+  background: #008080;
+  border-color: #008080;
+  color: #ffffff;
+}
+
+.view-toggle-container .btn-primary:hover {
+  background: #008080;
+  border-color: #008080;
+  transform: translateY(-1px);
+}
+
+.view-toggle-container .btn-secondary {
+  background: transparent;
+  border-color: #444444;
+  color: #cccccc;
+}
+
+.view-toggle-container .btn-secondary:hover {
+  background: #222222;
+  border-color: #666666;
+  color: #ffffff;
+}
+
+/* Main Content */
+.graph-main {
+  background: #000000;
+}
+
+.view-content {
+  display: none;
+}
+
+.view-content.active {
+  display: block;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  color: #888888;
+  font-size: 1.1rem;
+}
+
+.loading-spinner::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333333;
+  border-radius: 50%;
+  border-top-color: #008080;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Terminal View Styles */
+.terminal-view-container {
+  padding: 2rem;
+  background: #000000;
+}
+
+.terminal-placeholder {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.terminal-placeholder h3 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.terminal-placeholder p {
+  color: #888888;
+  margin-bottom: 3rem;
+}
+
+.terminal-mockup {
+  background: #1a1a1a;
+  border-radius: 8px;
+  border: 1px solid #333333;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-header {
+  background: #2a2a2a;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #333333;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.terminal-buttons span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.btn-close {
+  background: #ff5f57;
+}
+
+.btn-minimize {
+  background: #ffbd2e;
+}
+
+.btn-maximize {
+  background: #28ca42;
+}
+
+.terminal-title {
+  color: #cccccc;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.terminal-body {
+  padding: 1.5rem;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.terminal-body p {
+  margin: 0.5rem 0;
+  color: #ffffff;
+}
+
+.terminal-output {
+  color: #008080 !important;
+}
+
+.terminal-cursor {
+  color: #ffffff;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .graph-page-container h1 {
+    font-size: 2rem;
+  }
+  
+  .view-toggle-container .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .terminal-mockup {
+    margin: 0 1rem;
+  }
+}
+
+.hero-desc {
+  color: #797979; 
+}

@@ -1,0 +1,138 @@
+/* Data Page Styles */
+.data-page-container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: #000000;
+  color: #ffffff;
+  font-family: var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace;
+}
+
+.data-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.data-title {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.data-subtitle {
+  font-size: 1.2rem;
+  color: #888888;
+  font-weight: 300;
+}
+
+/* Terminal Navigation Section */
+.terminal-nav-section {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.terminal-link {
+  color: #00ff00;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.terminal-link:hover {
+  color: #66ff66;
+}
+
+.nav-separator {
+  color: #888888;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-card {
+  background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+  border: 1px solid #333333;
+  border-radius: 8px;
+  padding: 2rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.category-card:hover::before {
+  left: 100%;
+}
+
+.category-card:hover {
+  border-color: #008080;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 123, 255, 0.2);
+}
+
+.category-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.category-name {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+}
+
+.category-description {
+  font-size: 1rem;
+  color: #cccccc;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.category-arrow {
+  font-size: 1.5rem;
+  color: #008080;
+  text-align: right;
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .data-page-container {
+    padding: 1rem;
+  }
+  
+  .data-title {
+    font-size: 2rem;
+  }
+  
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .category-card {
+    padding: 1.5rem;
+  }
+}
