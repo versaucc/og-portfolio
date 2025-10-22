@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import '../../styles/terminal.css';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
+const supabaseServiceKey = process.env.NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY || 'placeholder-key';
+
+const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 interface SeriesData {
   id: string;
@@ -43,6 +43,13 @@ export default function TerminalPage() {
 
   const fetchTerminalData = async () => {
     try {
+      // Validate environment variables at runtime
+      if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY) {
+        console.error('Supabase environment variables not found');
+        setLoading(false);
+        return;
+      }
+
       // Get all tracked series with category distribution
       const { data: trackedSeries, error } = await supabase
         .from('tracked_series')

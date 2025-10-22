@@ -1,8 +1,8 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-// Initialize Supabase client
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+// Initialize Supabase client with fallback values for build time
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key';
 
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
@@ -70,6 +70,12 @@ export function getTimeFrameOptions(frequency: string): TimeFrameOption[] {
 // Fetch tracked series by category
 export async function fetchTrackedSeries(category: string): Promise<TrackedSeries[]> {
   try {
+    // Validate environment variables at runtime
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      console.error('Supabase environment variables not found');
+      return [];
+    }
+
     const { data, error } = await supabase
       .from('tracked_series')
       .select('*')
@@ -94,6 +100,12 @@ export async function fetchSeriesData(
   timeFrameMonths: number = 120
 ): Promise<SeriesDataPoint[]> {
   try {
+    // Validate environment variables at runtime
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      console.error('Supabase environment variables not found');
+      return [];
+    }
+
     const tableName = `series_${seriesId.toLowerCase()}`;
     const cutoffDate = new Date();
     cutoffDate.setMonth(cutoffDate.getMonth() - timeFrameMonths);
