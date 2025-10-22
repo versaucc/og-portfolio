@@ -23,7 +23,7 @@ export default function DataPage() {
       <header className="graph-header" data-bs-theme="dark">
         <div className="navbar navbar-dark shadow-sm">
           <div className="container">
-            <a href="/" className="navbar-brand d-flex align-items-center">
+            <Link href="/" className="navbar-brand d-flex align-items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -42,7 +42,7 @@ export default function DataPage() {
                 <path d="M12 2v20"></path>
               </svg>
               <strong>Home</strong>
-            </a>
+            </Link>
           </div>
         </div>
       </header>

@@ -20,6 +20,13 @@ interface SeriesData {
   twoStepsBackValue?: number;
 }
 
+interface TrackedSeries {
+  id: string;
+  title: string;
+  units: string;
+  category: string;
+}
+
 export default function TerminalPage() {
   const [seriesData, setSeriesData] = useState<SeriesData[]>([]);
   const [loading, setLoading] = useState(true);
@@ -47,7 +54,7 @@ export default function TerminalPage() {
       // Group by categories and take evenly distributed series (48 total)
       const categories = [...new Set(trackedSeries.map(s => s.category))];
       const seriesPerCategory = Math.floor(48 / categories.length);
-      const selectedSeries: any[] = [];
+      const selectedSeries: TrackedSeries[] = [];
 
       categories.forEach(category => {
         const categorySeries = trackedSeries

@@ -16,21 +16,19 @@ export default function StarfieldBackground() {
     if (!canvas) return;
 
     let animationId: number;
-    let n = NUM_STARS;
+    const n = NUM_STARS;
     let w = 0;
     let h = 0;
     let x = 0;
     let y = 0;
     let z = 0;
     let star_color_ratio = 0;
-    let star_ratio = 256;
+    const star_ratio = 256;
     let star_speed = 1;
-    let stars: number[][] = [];
-    let opacity = 0.1;
+    const stars: number[][] = [];
+    const opacity = 0.1;
     let cursor_x = 0;
     let cursor_y = 0;
-    let mouse_x = 0;
-    let mouse_y = 0;
     let dir_x = 0;
     let dir_y = 0;
     let warp = false;
@@ -60,14 +58,12 @@ export default function StarfieldBackground() {
     }
 
     function anim() {
-      mouse_x = cursor_x - x;
-      mouse_y = cursor_y - y;
       context.fillRect(0, 0, w, h);
       
       for (let i = 0; i < n; i++) {
         let test = true;
-        let star_x_save = stars[i][3];
-        let star_y_save = stars[i][4];
+        const star_x_save = stars[i][3];
+        const star_y_save = stars[i][4];
         
         stars[i][0] += dir_x;
         stars[i][1] += dir_y;
