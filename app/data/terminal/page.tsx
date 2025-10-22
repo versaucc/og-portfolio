@@ -42,13 +42,6 @@ export default function TerminalPage() {
   }, []);
 
   const fetchTerminalData = async () => {
-    try {
-      // Validate environment variables at runtime
-      if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY) {
-        console.error('Supabase environment variables not found');
-        setLoading(false);
-        return;
-      }
 
       // Get all tracked series with category distribution
       const { data: trackedSeries, error } = await supabase
