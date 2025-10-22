@@ -5,7 +5,7 @@ import { createClient } from '@supabase/supabase-js';
 import '../../styles/terminal.css';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
-const supabaseServiceKey = process.env.NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY || 'placeholder-key';
+const supabaseServiceKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key';
 
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
