@@ -42,7 +42,7 @@ export default function TerminalPage() {
   }, []);
 
   const fetchTerminalData = async () => {
-
+    try {
       // Get all tracked series with category distribution
       const { data: trackedSeries, error } = await supabase
         .from('tracked_series')
