@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 import GraphGrid from './GraphGrid';
-import TerminalView from './TerminalView';
 import '../styles/graphpage.css';
 
 interface CategoryPageProps {

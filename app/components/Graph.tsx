@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import {
-  LineChart,
-  Line,
   XAxis,
   YAxis,
   ResponsiveContainer,
@@ -21,9 +19,23 @@ interface GraphProps {
   className?: string;
 }
 
+interface ChartDataPoint {
+  date: string;
+  value: number | null;
+  units?: string;
+  formattedDate: string;
+}
+
+interface TooltipPayload {
+  value: number;
+  payload: {
+    units?: string;
+  };
+}
+
 interface TooltipProps {
   active?: boolean;
-  payload?: any[];
+  payload?: TooltipPayload[];
   label?: string;
 }
 
@@ -43,8 +55,8 @@ const CustomTooltip = ({ active, payload, label }: TooltipProps) => {
   return null;
 };
 
-export default function Graph({ data, title, units, className = '' }: GraphProps) {
-  const [chartData, setChartData] = useState<any[]>([]);
+export default function Graph({ data, units, className = '' }: GraphProps) {
+  const [chartData, setChartData] = useState<ChartDataPoint[]>([]);
 
   useEffect(() => {
     // Transform data for Recharts
